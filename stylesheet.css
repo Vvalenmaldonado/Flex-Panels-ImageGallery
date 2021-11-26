@@ -1,0 +1,108 @@
+html{
+    box-sizing: border-box;
+    background:#ffc600;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+}
+body{
+    margin: 0;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+.panels{
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+   
+}
+.panel{
+    background: #6B0F9C;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255, 0.1);
+    color: white;
+    text-align: center;
+    align-items: center;
+    /* safari transitionend event.propertyName === flex*/
+    /* Chrome = FF transitionend event.propertyName === flex-grow */
+
+    /*Al agregar la clase open, tenga el efecto de animacion (transition) FLUIDO.*/
+    transition: font-size 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+    background 0.2s;
+
+
+    font-size: 20px;
+    background-size:cover;
+    background-position: center;
+    flex: 1; /* para que se ubiquen en todo el espacio extra cada elemento. . */ 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+.panel1{
+    background-image: url(https://i.pinimg.com/originals/de/b5/fe/deb5fe1db9a3893118dc0357b1c87040.jpg);
+    
+}
+.panel2{
+    background-image: url(https://i.pinimg.com/originals/5d/e1/06/5de106a2d142b5c8da55fa1ff2a57c62.jpg);
+}
+.panel3{
+    background-image: url(https://www.xtrafondos.com/descargar.php?id=6236&resolucion=3840x2160);
+}
+.panel4{
+    background-image: url(https://k46.kn3.net/taringa/F/8/5/3/2/0/ChristianLua/9D1.jpg);
+}
+.panel5{
+    background-image: url(https://img1.wallspic.com/previews/5/9/2/4/6/164295/164295-anime-teatral_paisaje-edificio-ambiente-objeto_astronomico-x750.jpg);
+}
+
+/*Flex children, todos los hijos de panel.*/
+.panel > *{
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+    
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Utilizamos translateY para esconder todas las primeras p para arriba (first-child). y todas las ultimas p para abajo (thri). */
+.panel > *:first-child{
+    transform: translateY(-100%);
+}
+.panel.open-active > *:first-child{transform: translateY(0);}
+
+.panel > *:last-child{
+    transform: translateY(100%);
+}
+.panel.open-active > *:last-child{transform: translateY(0);}
+
+.panel p {
+    text-transform: uppercase;
+    font-family:'Amatic SC', cursive;
+    font-style: italic;
+    text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+  }
+
+/*Clase para el efecto open al clickear una foto.
+El font-size obliga a que se abra la imagen.*/
+.panel.open{
+    font-size: 40px;
+    flex: 5;
+}
+
+.panel p:nth-child(2) {
+    font-size: 3em;
+  }
+
+
+.cta{
+    color: white;
+    text-decoration: none;
+}
